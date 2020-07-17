@@ -16,7 +16,6 @@ function addNotes(title, body) {
     } else {
         console.log(chalk.black.bgRed('Note Title Taken'));
     }
-
 }
 
 function saveNotes(notes) {
@@ -36,9 +35,22 @@ function loadNotes() {
     }
 }
 
+function removeNotes(title) {
+    const notes = loadNotes()
+    const noteToKeep = notes.filter(function (note) {
+        return note.title !== title;
+    })
+    console.log(noteToKeep);
+    if (notes.length > noteToKeep.length) {
+        saveNotes(noteToKeep);
+        console.log(chalk.green.inverse("Note Deleted"))
+    } else {
+        console.log(chalk.inverse("Note Not found"));
+    }
+}
+
 module.exports = {
     addNotes,
     getNotes,
-    loadNotes
     removeNotes
 }
