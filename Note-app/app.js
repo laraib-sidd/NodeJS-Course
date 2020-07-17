@@ -1,8 +1,9 @@
 // Module Imports
-const val = require("validator");
-const fs = require('fs')
 const chalk = require("chalk");
 const yargs = require("yargs");
+
+// Internal Imports
+const notes = require('./notes')
 
 // Setting version
 yargs.version('1.0.0')
@@ -25,13 +26,8 @@ yargs.command({
         }
     },
     handler: function (argv) {
-        let data = {
-            title: argv['title'],
-            body: argv['body']
-        }
-        fs.writeFileSync('notes.json',JSON.stringify(data))
-        console.log('fas');
-        console.log(chalk.green.bgBlack('Note Added'))
+        notes.addNotes(argv['title'], argv['body']);
+
     }
 })
 
@@ -39,8 +35,15 @@ yargs.command({
 yargs.command({
     command: "remove",
     describe: "Removes a Note",
-    handler: function () {
-        console.log('Note Removed');
+    builder: {
+        title: {
+            describe: "Note Title",
+            demandOption: true,
+            type: "string"
+        }
+    },
+    handler: function (argv) {
+        notes.removeNotes(argv['title'])
     }
 })
 
