@@ -8,8 +8,8 @@ yargs.version('1.0.0')
 
 // Add Command
 yargs.command({
-    command:"add",
-    describe:"Adds a new Note",
+    command: "add",
+    describe: "Adds a new Note",
     handler: function () {
         console.log('New Note Added');
     }
@@ -17,8 +17,8 @@ yargs.command({
 
 // Remove Command
 yargs.command({
-    command:"remove",
-    describe:"Removes a Note",
+    command: "remove",
+    describe: "Removes a Note",
     handler: function () {
         console.log('Note Removed');
     }
@@ -26,17 +26,22 @@ yargs.command({
 
 // List Command
 yargs.command({
-    command:"list",
-    describe:"lists the note",
+    command: "list",
+    describe: "lists your note",
+    builder: {
+        title: {
+            describe: "Note Title"
+        }
+    },
     handler: function () {
-        console.log('Lists Of Notes');
+        console.log('Lists our all Notes');
     }
 })
 
 // Read Command
 yargs.command({
-    command:"read",
-    describe:"Reads a note",
+    command: "read",
+    describe: "Reads a note",
     handler: function () {
         console.log('Read notes');
     }
