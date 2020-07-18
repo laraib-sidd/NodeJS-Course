@@ -48,6 +48,7 @@ const removeNotes = (title) => {
 }
 
 const readNote = (title) =>{
+    debugger
     const notes = loadNotes()
     const requiredNote = notes.find((note)=> note.title === title)
     if (requiredNote){
