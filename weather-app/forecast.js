@@ -10,9 +10,9 @@ const fetchData = (query, callback) => {
             body
         }) => {
             if (err) {
-                callback("Check your internet Connection")
+                callback("Check your internet Connection", undefined)
             } else if (body.error) {
-                callback("Check your input Query");
+                callback("Check your input Query", undefined);
             } else {
                 callback(undefined, {
                     temperature: body.current.temperature,
