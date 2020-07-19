@@ -8,7 +8,7 @@ const app = express()
 // Setting up file paths
 const filePath = path.join(__dirname, '../public')
 const viewPath = path.join(__dirname, '../Templates/views')
-const partialsPath = path.join(__dirname,'../Templates/partials')
+const partialsPath = path.join(__dirname, '../Templates/partials')
 
 // Setting up handlebars
 app.set('view engine', 'hbs')
@@ -27,6 +27,12 @@ app.get('', (req, res) => {
 app.get('/about', (req, res) => {
     res.render('about', {
         title: 'About Me'
+    })
+})
+
+app.get('/help', (req, res) => {
+    res.render('help', {
+        title: "Help"
     })
 })
 
