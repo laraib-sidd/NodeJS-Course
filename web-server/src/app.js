@@ -5,6 +5,7 @@ const app = express()
 
 const filePath = path.join(__dirname, '../public')
 
+app.set('view engine', 'hbs')
 app.use(express.static(filePath))
 
 app.get('/weather', (req, res) => {
