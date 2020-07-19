@@ -36,8 +36,16 @@ app.get('/help', (req, res) => {
     })
 })
 
-app.get('/weather', (req, res) => {
-    res.send('<h1>Weather Page</h1>')
+app.get('/help/*', (req, res) => {
+    res.render('error', {
+        title: "Help Article not found",
+    })
+})
+
+app.get('*', (req, res) => {
+    res.render('error', {
+        title: "Page not found"
+    })
 })
 
 app.listen(3001, () => {
