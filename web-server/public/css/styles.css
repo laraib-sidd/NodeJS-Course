@@ -1,8 +1,30 @@
-h1{
-    color: aquamarine;
+body{
+	text-align: center
 }
+
 img {
 	height: 250px;
 	width: auto;
 	border-radius: 24%;
+}
+
+.main-body{
+	margin: auto;
+	padding: 20px
+}
+
+.main-body h1{
+	font-size: 49px;
+	font-family: ariels;
+
+}
+
+.main-body a{
+	text-decoration: none;
+	padding: 20px;
+	
+}
+footer{
+	position: relative;
+	top:400px;
 }
