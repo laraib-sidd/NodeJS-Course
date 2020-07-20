@@ -22,7 +22,7 @@ const para = document.querySelectorAll('p')
 var weatherForm = document.querySelector('form')
 weatherForm.addEventListener('submit', (e) => {
     e.preventDefault()
-    para[0].innerText = "Loading...."
+    para[1].innerText = "Loading...."
     const int = e.target[0].value
     url = `http://localhost:3003/weather?address=${int}`
     fetch(url)

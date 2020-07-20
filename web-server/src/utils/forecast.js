@@ -15,7 +15,8 @@ const fetchData = (query, callback) => {
                 callback("Check your input Query", undefined);
             } else {
                 callback(undefined, {
-                    weather: `The temperature at your location is ${body.current.temperature},And the weather seems to be ${body.current.weather_descriptions[0]}.There are ${body.current.precip}% chances of rain`,
+                    weather: `The temperature at your location is ${body.current.temperature},
+                    And the weather seems to be ${body.current.weather_descriptions[0]}.There are ${body.current.precip}% chances of rain`,
                     location: body.request.query,
                 })
             }
