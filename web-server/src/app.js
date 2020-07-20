@@ -53,10 +53,8 @@ app.get('/weather', (req, res) => {
         })
     }
     forecast.fetchData(address, (err, {
-        temperature,
-        weather,
-        location,
-        precipitation
+        forcast,
+        location
     } = {}) => {
         if (err) {
             res.send({
@@ -64,11 +62,9 @@ app.get('/weather', (req, res) => {
             })
         } else {
             res.send({
-                weather,
+                forcast,
                 address,
-                temperature,
-                location,
-                precipitation
+                location
             })
         }
     })

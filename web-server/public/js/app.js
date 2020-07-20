@@ -6,23 +6,23 @@
 
 // var btn = document.querySelector('button');
 // btn.addEventListener('click', (e) => {
-    // url = `http://localhost:3003/weather?address=d`
-    // fetch(url)
-    //     .then(res => res.json())
-    //     .then((data) => {
-    //         if (data.error) {
-    //             console.log(data.error);
-    //         } else {
-    //             console.log(data);
-    //         }
-    //     })
+// url = `http://localhost:3003/weather?address=d`
+// fetch(url)
+//     .then(res => res.json())
+//     .then((data) => {
+//         if (data.error) {
+//             console.log(data.error);
+//         } else {
+//             console.log(data);
+//         }
+//     })
 // })
-
+const para = document.querySelector('p')
 
 var weatherForm = document.querySelector('form')
 weatherForm.addEventListener('submit', (e) => {
     e.preventDefault()
-    var int = e.target[0].value
+    const int = e.target[0].value
     url = `http://localhost:3003/weather?address=${int}`
     fetch(url)
         .then(res => res.json())
@@ -30,7 +30,7 @@ weatherForm.addEventListener('submit', (e) => {
             if (data.error) {
                 console.log(data.error);
             } else {
-                console.log(data);
+                para.innerHTML = JSON.stringify(data);
             }
         })
 })
