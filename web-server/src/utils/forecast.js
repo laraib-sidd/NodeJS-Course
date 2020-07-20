@@ -17,12 +17,12 @@ const fetchData = (query, callback) => {
                 callback(undefined, {
                     temperature: body.current.temperature,
                     weather: body.current.weather_descriptions[0],
-                    location: body.request.query
+                    location: body.request.query,
+                    precipitation: body.current.precip
                 })
             }
         })
     }, 0);
-
 }
 
 module.exports = {

@@ -31,7 +31,7 @@ body {
 
 .main-body a {
 	color: #888888;
-	margin-right: 16px;
+	margin-right: 20px;
 	text-decoration: none;
 }
 
@@ -44,4 +44,9 @@ footer {
 	border-top: 1px solid #eeeeee;
 	margin-top: 16px;
 	padding: 16px 0;
+}
+
+.main-body input {
+	display: inline-block;
+	margin: 30px 20px;
 }

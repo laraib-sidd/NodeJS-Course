@@ -1,6 +1,7 @@
 const path = require('path');
 const express = require('express');
 const hbs = require('hbs');
+const forecast = require('./utils/forecast');
 
 // Intialising Express app
 const app = express()
@@ -42,12 +43,44 @@ app.get('/help/*', (req, res) => {
     })
 })
 
+app.get('/weather', (req, res) => {
+    const {
+        address
+    } = req.query;
+    if (!address) {
+        return res.send({
+            error: "Provide a address string to process the result"
+        })
+    }
+    forecast.fetchData(address, (err, {
+        temperature,
+        weather,
+        location,
+        precipitation
+    } = {}) => {
+        if (err) {
+            res.send({
+                error: err
+            })
+        } else {
+            res.send({
+                weather,
+                address,
+                temperature,
+                location,
+                precipitation
+            })
+        }
+    })
+})
+
 app.get('*', (req, res) => {
     res.render('error', {
         title: "Page not found"
     })
 })
 
-app.listen(3001, () => {
-    console.log('The server is running');
+
+app.listen(3003, () => {
+    console.log('The server is running on 3002');
 })
